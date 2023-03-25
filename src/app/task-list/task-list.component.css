@@ -88,3 +88,16 @@ td {
 .is-done {
   text-decoration: line-through;
 }
+
+mat-datepicker-toggle {
+  color: rgb(155, 32, 32) !important;
+}
+
+p {
+  line-height: 50px;
+}
+
+.validation-error {
+  color: rgb(255, 0, 0);
+  padding: 1rem 0px;
+}

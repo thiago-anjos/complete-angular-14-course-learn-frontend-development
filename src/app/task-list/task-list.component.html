@@ -5,7 +5,8 @@
         [(ngModel)]="date"
         [matDatepicker]="picker"
         name="date"
-        required=""
+        required
+        readonly
       />
       <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -16,17 +17,20 @@
         placeholder="Todo"
         [(ngModel)]="newTaskTitle"
         name="taskTitle"
-        required=""
+        required
         #newTask="ngModel"
         minlength="4"
       />
       <button class="add-button">+</button>
     </div>
     <div
-      *ngIf="newTask.invalid && newTask.touched && newTask.dirty"
       class="validation-error"
+      *ngIf="newTask.invalid && (newTask.dirty || newTask.touched)"
     >
-      Task title is required
+      <div *ngIf="newTask.errors?.required">Task title is required</div>
+      <div *ngIf="newTask.errors?.minlength">
+        Task title must at least have 4 characters
+      </div>
     </div>
   </form>
   <table>

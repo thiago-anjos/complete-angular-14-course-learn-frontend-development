@@ -1,5 +1,5 @@
 <div class="todo-list">
-  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm">
+  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm" #form>
     <div class="input-group">
       <input
         [(ngModel)]="date"
@@ -21,7 +21,7 @@
         #newTask="ngModel"
         minlength="4"
       />
-      <button class="add-button">+</button>
+      <button class="add-button" [disabled]="!form.checkValidity()">+</button>
     </div>
     <div
       class="validation-error"

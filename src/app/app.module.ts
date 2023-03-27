@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskListModule } from './task-list/task-list.module';
+import { TasksModule } from './tasks/tasks.module';
 import { CalendarModule } from './calendar/calendar.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, TaskListModule, CalendarModule],
+  imports: [BrowserModule, AppRoutingModule, TasksModule, CalendarModule],
   providers: [],
   bootstrap: [AppComponent],
 })

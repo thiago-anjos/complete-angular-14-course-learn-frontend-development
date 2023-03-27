@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TaskItem } from './task-item.dto';
+import { NewTask } from './NewTask.dto';
 
 @Component({
   selector: 'app-task-list',
@@ -10,29 +12,28 @@ import { ActivatedRoute } from '@angular/router';
 export class TaskListComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
-  date: Date = new Date();
-
-  newTaskTitle: string = '';
+  newTask: NewTask = new NewTask();
 
   ngOnInit(): void {
-    this.date = new Date(this.route.snapshot.params['date']);
+    let strDate = this.route.snapshot.params['date'];
+    this.newTask = new NewTask(this.newTask.title, new Date(strDate));
   }
 
   tasks = [
-    new Task('Visit An'),
-    new Task('Call Dad'),
-    new Task('Go to the gym'),
-    new Task('Wash the dishes'),
-    new Task('Shop for the party'),
+    new TaskItem('Visit An'),
+    new TaskItem('Call Dad'),
+    new TaskItem('Go to the gym'),
+    new TaskItem('Wash the dishes'),
+    new TaskItem('Shop for the party'),
   ];
 
   add(taskNgForm: NgForm) {
     if (taskNgForm.touched == false) return;
     if (taskNgForm.valid === false) return;
 
-    this.tasks.push(new Task(this.newTaskTitle));
+    this.tasks.push(new TaskItem(this.newTask.title));
     taskNgForm.reset({
-      date: this.date,
+      date: this.newTask.date,
     });
   }
 
@@ -40,14 +41,4 @@ export class TaskListComponent implements OnInit {
     let confirmed = confirm(`Gostaria de deletar a tarefa: \n\n ${content}`);
     if (confirmed) this.tasks.splice(index, 1);
   }
-}
-
-class Task {
-  constructor(public title: string) {}
-
-  toggleTaskComplete() {
-    this.isDone = !this.isDone;
-  }
-
-  public isDone = false;
 }

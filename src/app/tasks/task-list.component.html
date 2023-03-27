@@ -2,7 +2,7 @@
   <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm" #form>
     <div class="input-group">
       <input
-        [(ngModel)]="date"
+        [(ngModel)]="newTask.date"
         [matDatepicker]="picker"
         name="date"
         required
@@ -15,20 +15,23 @@
       <input
         type="text"
         placeholder="Todo"
-        [(ngModel)]="newTaskTitle"
+        [(ngModel)]="newTask.title"
         name="taskTitle"
         required
-        #newTask="ngModel"
+        #newTaskNgModel="ngModel"
         minlength="4"
       />
       <button class="add-button" [disabled]="!form.checkValidity()">+</button>
     </div>
     <div
       class="validation-error"
-      *ngIf="newTask.invalid && (newTask.dirty || newTask.touched)"
+      *ngIf="
+        newTaskNgModel.invalid &&
+        (newTaskNgModel.dirty || newTaskNgModel.touched)
+      "
     >
-      <div *ngIf="newTask.errors?.required">Task title is required</div>
-      <div *ngIf="newTask.errors?.minlength">
+      <div *ngIf="newTaskNgModel.errors?.required">Task title is required</div>
+      <div *ngIf="newTaskNgModel.errors?.minlength">
         Task title must at least have 4 characters
       </div>
     </div>

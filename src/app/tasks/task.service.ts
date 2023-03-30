@@ -16,12 +16,15 @@ export class TaskService {
     new TaskItem('Shop for the party'),
   ];
 
-  getAllTasks(): TaskItem[] {
+  // protect the returing tasks array
+  getAllTasks(): ReadonlyArray<TaskItem> {
     return this.tasks;
   }
 
   addTask(newTask: NewTask) {
-    this.tasks.push(new TaskItem(newTask.title));
+    // return a new array
+    // keep the imutability of original array
+    this.tasks = this.tasks.concat(new TaskItem(newTask.title));
   }
 
   removeTask(index: number) {

@@ -28,8 +28,6 @@ export class TaskListComponent implements OnInit {
     if (taskNgForm.valid === false) return;
 
     this.taskService.addTask(this.newTask);
-    // to update the array 'manually'
-    // this.tasks = this.taskService.getAllTasks();
     taskNgForm.reset({
       date: this.newTask.date,
     });

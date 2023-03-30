@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TaskItem } from './task-item.dto';
 import { NewTask } from './NewTask.dto';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,26 +9,25 @@ import { NewTask } from './NewTask.dto';
 export class TaskService {
   constructor() {}
 
-  tasks = [
+  private tasks = new BehaviorSubject([
     new TaskItem('Visit An'),
     new TaskItem('Call Dad'),
     new TaskItem('Go to the gym'),
     new TaskItem('Wash the dishes'),
     new TaskItem('Shop for the party'),
-  ];
+  ]);
 
-  // protect the returing tasks array
-  getAllTasks(): ReadonlyArray<TaskItem> {
+  getAllTasks(): Observable<TaskItem[]> {
     return this.tasks;
   }
 
   addTask(newTask: NewTask) {
-    // return a new array
-    // keep the imutability of original array
-    this.tasks = this.tasks.concat(new TaskItem(newTask.title));
+    var updatedTasks = this.tasks.value.concat(new TaskItem(newTask.title));
+    this.tasks.next(updatedTasks);
   }
 
   removeTask(index: number) {
-    this.tasks.splice(index, 1);
+    var updatedTask = this.tasks.value.filter((_, i) => i !== index);
+    this.tasks.next(updatedTask);
   }
 }

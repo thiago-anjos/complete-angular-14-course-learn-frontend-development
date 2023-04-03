@@ -2,23 +2,27 @@ import { Injectable } from '@angular/core';
 import { TaskItem } from './task-item.dto';
 import { NewTask } from './NewTask.dto';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  private tasks = new BehaviorSubject([
-    new TaskItem('Visit An'),
-    new TaskItem('Call Dad'),
-    new TaskItem('Go to the gym'),
-    new TaskItem('Wash the dishes'),
-    new TaskItem('Shop for the party'),
-  ]);
+  private tasks = new BehaviorSubject<TaskItem[]>([]);
 
   getAllTasks(): Observable<TaskItem[]> {
-    return this.tasks;
+    return this.httpClient
+      .get<TaskItem[]>('http://localhost:3001/tasks')
+      .pipe(tap((x) => console.log(x)))
+      .pipe(map(this.transformJsonItensToTaskClass))
+      .pipe(tap((x) => console.log(x)));
+  }
+
+  private transformJsonItensToTaskClass(items: { title: string }[]) {
+    return items.map((item) => new TaskItem(item.title));
   }
 
   addTask(newTask: NewTask) {

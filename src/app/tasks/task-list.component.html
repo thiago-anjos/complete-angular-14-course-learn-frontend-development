@@ -48,7 +48,7 @@
         </p>
       </td>
       <td>
-        <button class="remove-button" (click)="remove(i, task.title)">X</button>
+        <button class="remove-button" (click)="remove(task)">X</button>
         <button class="done-button" (click)="task.toggleTaskComplete()">
           {{ task.isDone ? "Undo" : "Done" }}
         </button>

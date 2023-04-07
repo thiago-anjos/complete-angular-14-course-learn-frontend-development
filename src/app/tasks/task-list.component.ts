@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NewTask } from './NewTask.dto';
 import { TaskService } from './task.service';
+import { TaskItem } from './task-item.dto';
 
 @Component({
   selector: 'app-task-list',
@@ -33,8 +34,9 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  remove(index: number, content: string) {
-    let confirmed = confirm(`Gostaria de deletar a tarefa: \n\n ${content}`);
-    if (confirmed) this.taskService.removeTask(index);
+  remove(task: TaskItem) {
+    console.log('remove', task);
+    let confirmed = confirm(`Gostaria de deletar a tarefa: \n\n ${task.title}`);
+    if (confirmed) this.taskService.removeTask(task.id);
   }
 }

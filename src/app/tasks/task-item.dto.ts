@@ -6,4 +6,6 @@ export class TaskItem {
   }
 
   public isDone = false;
+
+  public id: string = '';
 }

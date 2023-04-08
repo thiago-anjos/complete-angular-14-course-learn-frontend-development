@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CalendarComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    throw new Error('TESTE');
+  }
 
   selectedDate = new Date();
 }

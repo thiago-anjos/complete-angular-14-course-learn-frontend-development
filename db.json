@@ -18,5 +18,37 @@
       "isDone": false,
       "id": 3
     }
+  ],
+  "logErrors": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "path": "/",
+      "message": "TESTE",
+      "handler": "GlobalErrorHandler",
+      "user": "the-id-of-the-current-user",
+      "time": "2023-04-08T21:09:47.763Z",
+      "stack": "Error: TESTE\n    at CalendarComponent.ngOnInit (http://localhost:4200/main.js:222:15)\n    at callHook (http://localhost:4200/vendor.js:27427:22)\n    at callHooks (http://localhost:4200/vendor.js:27396:17)\n    at executeInitAndCheckHooks (http://localhost:4200/vendor.js:27347:9)\n    at refreshView (http://localhost:4200/vendor.js:34361:21)\n    at refreshEmbeddedViews (http://localhost:4200/vendor.js:35471:17)\n    at refreshView (http://localhost:4200/vendor.js:34370:9)\n    at refreshComponent (http://localhost:4200/vendor.js:35517:13)\n    at refreshChildComponents (http://localhost:4200/vendor.js:34143:9)\n    at refreshView (http://localhost:4200/vendor.js:34396:13)",
+      "id": 8
+    }
   ]
 }

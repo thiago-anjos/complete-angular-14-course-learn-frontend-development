@@ -4,7 +4,7 @@ import { TaskItem } from '../task-item.dto';
 import { TaskService } from '../task.service';
 
 @Component({
-  selector: 'app-task-table',
+  selector: 'app-task-table[tasks][onRemove]',
   templateUrl: './task-table.component.html',
   styleUrls: ['./task-table.component.css'],
 })

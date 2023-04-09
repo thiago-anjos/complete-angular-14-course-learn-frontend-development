@@ -9,7 +9,7 @@ export class CalendarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    throw new Error('TESTE');
+    //throw new Error('TESTE');
   }
 
   selectedDate = new Date();

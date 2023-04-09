@@ -1,0 +1,19 @@
+<table>
+  <tr
+    [class.even]="i % 2 == 0"
+    [class.odd]="i % 2"
+    *ngFor="let task of tasks; index as i"
+  >
+    <td>
+      <p [class.is-done]="task.isDone">
+        {{ task.title }}
+      </p>
+    </td>
+    <td>
+      <button class="remove-button" (click)="remove(task)">X</button>
+      <button class="done-button" (click)="task.toggleTaskComplete()">
+        {{ task.isDone ? "Undo" : "Done" }}
+      </button>
+    </td>
+  </tr>
+</table>

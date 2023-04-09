@@ -127,6 +127,15 @@
       "time": "2023-04-08T21:13:23.810Z",
       "stack": "TypeError: task_r8.toggleTaskComplete is not a function\n    at TaskListComponent_tr_16_Template_button_click_7_listener (http://localhost:4200/main.js:428:22)\n    at executeListenerWithErrorHandling (http://localhost:4200/vendor.js:40186:16)\n    at wrapListenerIn_markDirtyAndPreventDefault (http://localhost:4200/vendor.js:40224:22)\n    at HTMLButtonElement.<anonymous> (http://localhost:4200/vendor.js:75416:38)\n    at _ZoneDelegate.invokeTask (http://localhost:4200/polyfills.js:9863:31)\n    at Object.onInvokeTask (http://localhost:4200/vendor.js:53562:33)\n    at _ZoneDelegate.invokeTask (http://localhost:4200/polyfills.js:9862:60)\n    at Zone.runTask (http://localhost:4200/polyfills.js:9635:47)\n    at ZoneTask.invokeTask [as invoke] (http://localhost:4200/polyfills.js:9944:34)\n    at invokeTask (http://localhost:4200/polyfills.js:11118:18)",
       "id": 18
+    },
+    {
+      "path": "/",
+      "message": "Method not implementd",
+      "handler": "GlobalErrorHandler",
+      "user": "the-id-of-the-current-user",
+      "time": "2023-04-09T02:58:00.683Z",
+      "stack": "Error: Method not implementd\n    at PaintDirective.ngOnInit (http://localhost:4200/main.js:314:15)\n    at callHook (http://localhost:4200/vendor.js:27427:22)\n    at callHooks (http://localhost:4200/vendor.js:27396:17)\n    at executeInitAndCheckHooks (http://localhost:4200/vendor.js:27347:9)\n    at selectIndexInternal (http://localhost:4200/vendor.js:33329:17)\n    at Module.ɵɵadvance (http://localhost:4200/vendor.js:33312:5)\n    at CalendarComponent_Template (http://localhost:4200/main.js:240:64)\n    at executeTemplate (http://localhost:4200/vendor.js:34480:9)\n    at refreshView (http://localhost:4200/vendor.js:34346:13)\n    at refreshComponent (http://localhost:4200/vendor.js:35517:13)",
+      "id": 19
     }
   ]
 }

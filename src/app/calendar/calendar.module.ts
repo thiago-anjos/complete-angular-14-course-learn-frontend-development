@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
+import { PaintDirective } from './paint.directive';
 
 @NgModule({
-  declarations: [CalendarComponent],
+  declarations: [CalendarComponent, PaintDirective],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

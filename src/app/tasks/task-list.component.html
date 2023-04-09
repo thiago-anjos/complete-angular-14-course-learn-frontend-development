@@ -36,5 +36,8 @@
       </div>
     </div>
   </form>
-  <app-task-table [tasks]="(tasks | async) ?? []"></app-task-table>
+  <app-task-table
+    [tasks]="(tasks | async) ?? []"
+    (onRemove)="remove($event)"
+  ></app-task-table>
 </div>

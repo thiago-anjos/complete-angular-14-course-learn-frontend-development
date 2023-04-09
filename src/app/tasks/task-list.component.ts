@@ -33,4 +33,10 @@ export class TaskListComponent implements OnInit {
       date: this.newTask.date,
     });
   }
+
+  remove(task: TaskItem) {
+    console.log('remove', task);
+    let confirmed = confirm(`Gostaria de deletar a tarefa: \n\n ${task.title}`);
+    if (confirmed) this.taskService.removeTask(task.id);
+  }
 }

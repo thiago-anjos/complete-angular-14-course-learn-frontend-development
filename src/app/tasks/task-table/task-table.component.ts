@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskItem } from '../task-item.dto';
 import { TaskService } from '../task.service';
@@ -11,13 +11,14 @@ import { TaskService } from '../task.service';
 export class TaskTableComponent implements OnInit {
   @Input() tasks: TaskItem[] = [];
 
+  @Output()
+  onRemove = new EventEmitter<TaskItem>();
+
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {}
 
   remove(task: TaskItem) {
-    console.log('remove', task);
-    let confirmed = confirm(`Gostaria de deletar a tarefa: \n\n ${task.title}`);
-    if (confirmed) this.taskService.removeTask(task.id);
+    this.onRemove.next(task);
   }
 }
